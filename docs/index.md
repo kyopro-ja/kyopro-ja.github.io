@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lisp-ja
+title: kyopro-ja
 ---
-# GitHub Pages Temlateにようこそ
+# Kyopro-jaにようこそ
 
