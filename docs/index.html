@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>kyopro-ja</title>
+        <script src="https://unpkg.com/vue@2.5.17"></script>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+
+        <span id="app">
+            <header-menu></header-menu>
+        </span>
+
+        <script type="text/x-template" id="header-menu">
+            <header style="color: white; background-color: #494545; margin: 0px 0px 3px 0px;">
+                <h1>kyopro-ja</h1>
+                <nav class="menu">
+                    <ul style="flex-direction: row; display: flex; list-style: none; font-size: 150%; padding: 0px 0px 5px 20px; margin: 0px 0px 0px 0px;">
+                        <li style="padding: 0px 6px 0px 6px;"><a href="/" style="color: white;">HOME</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </script>
+        
+        <script>
+         // ロードされ、Vueがグローバル変数として定義されているか確認
+         console.assert(typeof Vue !== 'undefined');
+         Vue.component('header-menu',{
+             template: '#header-menu'
+         });
+         var vm = new Vue({
+             el: '#app',
+             data: {
+                 title: 'kyopro-ja'
+             }
+         });
+        </script>
+
+    </body>
+</html>
