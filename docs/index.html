@@ -12,8 +12,7 @@
                 <h1>kyopro-ja</h1>
                 <nav class="menu">
                     <ul style="flex-direction: row; display: flex; list-style: none; font-size: 150%; padding: 0px 0px 5px 20px; margin: 0px 0px 0px 0px;">
-                        <li style="padding: 0px 6px 0px 6px;"><a href="/" style="color: white;">HOME</a></li>
-                        <li style="padding: 0px 6px 0px 6px;"><router-link to="/top" style="color: white;">トップページ</router-link></li>
+                        <li style="padding: 0px 6px 0px 6px;"><a href="#top" style="color: white;">HOME</a></li>
                     </ul>
                 </nav>
         </header>
@@ -35,9 +34,9 @@
                      path: '/top',
                      component: {
                          template: `
-                             <div>
-                             <h2>Kyopro-jaにようこそ</h2>
-                             <p>Kyopro-jaは、競技プログラミングについて学べるサイトです。(未完成です)</p>
+                             <div id="app">
+                                 <h2>Kyopro-jaにようこそ</h2>
+                                 <p>Kyopro-jaは、競技プログラミングについて学べるサイトです。(未完成です)</p>
                              </div>
                          `
                      }
