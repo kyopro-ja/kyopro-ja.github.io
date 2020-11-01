@@ -4,37 +4,57 @@
         <meta charset="UTF-8">
         <title>kyopro-ja</title>
         <script src="https://unpkg.com/vue@2.5.17"></script>
+        <script src="https://unpkg.com/vue-router@2.7.0/dist/vue-router.min.js"></script>
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-
-        <span id="app">
-            <header-menu></header-menu>
-        </span>
-
-        <script type="text/x-template" id="header-menu">
-            <header style="color: white; background-color: #494545; margin: 0px 0px 3px 0px;">
+        <header style="color: white; background-color: #494545; margin: 0px 0px 3px 0px;">
                 <h1>kyopro-ja</h1>
                 <nav class="menu">
                     <ul style="flex-direction: row; display: flex; list-style: none; font-size: 150%; padding: 0px 0px 5px 20px; margin: 0px 0px 0px 0px;">
                         <li style="padding: 0px 6px 0px 6px;"><a href="/" style="color: white;">HOME</a></li>
+                        <li style="padding: 0px 6px 0px 6px;"><router-link to="/top" style="color: white;">トップページ</router-link></li>
                     </ul>
                 </nav>
-            </header>
-        </script>
-        
+        </header>
+        <span id="app">
+            <header-menu></header-menu>
+            <router-view></router-view>
+        </span>
+
+
         <script>
          // ロードされ、Vueがグローバル変数として定義されているか確認
          console.assert(typeof Vue !== 'undefined');
-         Vue.component('header-menu',{
+         Vue.component('headermenu', {
              template: '#header-menu'
-         });
+         })
+         var router = new VueRouter({
+             routes: [
+                 {
+                     path: '/top',
+                     component: {
+                         template: `
+                             <div>
+                             <h2>Kyopro-jaにようこそ</h2>
+                             <p>Kyopro-jaは、競技プログラミングについて学べるサイトです。(未完成です)</p>
+                             </div>
+                         `
+                     }
+                 },
+                 {
+                     // 定義されていないパスへの対応。トップページへリダイレクトする。
+                     path: '*',
+                     redirect: '/top'
+                 }
+             ]
+         })
          var vm = new Vue({
-             el: '#app',
              data: {
                  title: 'kyopro-ja'
-             }
-         });
+             },
+             router: router
+         }).$mount('#app')
         </script>
 
     </body>
